@@ -25,13 +25,20 @@ function formatDate(timestamp) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   return days[day];
 }
 
 function displayForecast(response) {
-  console.log(response);
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
@@ -52,7 +59,7 @@ function displayForecast(response) {
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
             forecastDay.temperature.maximum
-          )}° </span>
+          )}° | </span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
             forecastDay.temperature.minimum
           )}° </span>
